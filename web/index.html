@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MechaCare Industrial Systems - Machine Maintenance Insight Dashboard. Predictive equipment analytics, sensor anomaly detection, and operational reliability prioritization.">
+  <title>MechaCare | Machine Maintenance Insight & Fleet Health Intelligence</title>
+  
+  <!-- Modern Industrial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="main-header">
+    <div class="nav-container">
+      <div class="brand-group">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">MechaCare</span>
+          <span class="brand-tag">Industrial Systems &bull; Fleet Insight</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" id="nav-menu">
+        <a href="#overview" class="nav-link active">Fleet Overview</a>
+        <a href="#equipment-table" class="nav-link">Asset Matrix</a>
+        <a href="#eda-analytics" class="nav-link">Analytical Findings</a>
+        <a href="#ml-lab" class="nav-link">Predictive Modeling</a>
+        <a href="#action-plan" class="nav-link">Prioritization</a>
+        <a href="#downloads" class="nav-link">Artifacts</a>
+      </nav>
+
+      <div class="system-status">
+        <span class="status-indicator pulse"></span>
+        <span class="status-label">Fleet Telemetry: Active (64,016 hrs)</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero / Header Summary -->
+    <section class="hero-section" id="overview">
+      <div class="hero-content">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          Data Science Skill-Based Assessment 2 &bull; Use Case 25
+        </div>
+        <h1 class="hero-title">
+          Equipment Health, Warning Patterns & <span class="gradient-text">Predictive Maintenance Insight</span>
+        </h1>
+        <p class="hero-description">
+          Forensic analysis of 30 industrial machines across 64,016 synchronized hourly operating records, 2,510 alarms, and 51 maintenance interventions. Uncovering equipment failure signatures, dispelling operating myths, and prioritizing high-risk assets for MechaCare Industrial Systems.
+        </p>
+      </div>
+
+      <!-- Top Metric Cards Grid -->
+      <div class="kpi-grid">
+        <div class="kpi-card" id="kpi-total-machines">
+          <div class="kpi-icon-wrapper blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="kpi-meta">
+            <span class="kpi-title">Monitored Fleet</span>
+            <span class="kpi-value" id="val-machines">30 Assets</span>
+            <span class="kpi-subtext">Across 5 Machine Classes</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-total-downtime">
+          <div class="kpi-icon-wrapper red">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="kpi-meta">
+            <span class="kpi-title">Unplanned Downtime</span>
+            <span class="kpi-value highlight-red" id="val-downtime">268.5 Hrs</span>
+            <span class="kpi-subtext">51 Service Interventions</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-total-alarms">
+          <div class="kpi-icon-wrapper amber">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="kpi-meta">
+            <span class="kpi-title">Total Alarms</span>
+            <span class="kpi-value" id="val-alarms">2,510</span>
+            <span class="kpi-subtext">1,236 Critical (49.2%)</span>
+          </div>
+        </div>
+
+        <div class="kpi-card" id="kpi-load-paradox">
+          <div class="kpi-icon-wrapper cyan">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="kpi-meta">
+            <span class="kpi-title">Load vs Downtime</span>
+            <span class="kpi-value highlight-cyan">r = -0.142</span>
+            <span class="kpi-subtext">The Load Paradox (Zero Corr)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment Fleet Directory Table -->
+    <section class="section-container" id="equipment-table">
+      <div class="section-header">
+        <div>
+          <span class="section-badge">ASSET INVENTORY &bull; TELEMETRY MATRIX</span>
+          <h2 class="section-title">Equipment Condition & Maintenance Priority Directory</h2>
+          <p class="section-subtitle">Real-time ranking of all 30 machines by failure risk, total downtime, alarm density, and vibration extremes.</p>
+        </div>
+        
+        <!-- Filter and Search Bar -->
+        <div class="table-controls">
+          <div class="search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="asset-search" placeholder="Search machine ID or type..." autocomplete="off">
+          </div>
+          
+          <div class="select-group">
+            <select id="type-filter" class="custom-select">
+              <option value="ALL">All Machine Types</option>
+              <option value="Hydraulic Press">Hydraulic Press</option>
+              <option value="CNC Lathe">CNC Lathe</option>
+              <option value="Compressor">Compressor</option>
+              <option value="Conveyor">Conveyor</option>
+              <option value="Milling Machine">Milling Machine</option>
+            </select>
+
+            <select id="priority-filter" class="custom-select">
+              <option value="ALL">All Priorities</option>
+              <option value="High">High Priority</option>
+              <option value="Medium">Medium Priority</option>
+              <option value="Low">Low Priority</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-responsive">
+          <table class="data-table" id="fleet-data-table">
+            <thead>
+              <tr>
+                <th data-sort="id">Machine ID</th>
+                <th data-sort="type">Type</th>
+                <th data-sort="age_years">Age</th>
+                <th data-sort="total_downtime">Total Downtime</th>
+                <th data-sort="service_count">Services</th>
+                <th data-sort="alarm_count">Alarms</th>
+                <th data-sort="max_vibration">Peak Vibration</th>
+                <th data-sort="max_temp">Max Temp</th>
+                <th data-sort="priority">Maintenance Priority</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Dynamically rendered by app.js -->
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <span id="showing-count">Showing 30 of 30 machines</span>
+          <span class="hint-text">💡 Click on any machine row to open complete diagnostic history and maintenance recommendations.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Analytical Suite (Tabs for Q1 to Q6) -->
+    <section class="section-container" id="eda-analytics">
+      <div class="section-header">
+        <div>
+          <span class="section-badge">EXPLORATORY DATA ANALYSIS</span>
+          <h2 class="section-title">Evidence-Backed Answers to the 6 Analytical Questions</h2>
+          <p class="section-subtitle">Direct empirical findings derived from sensors, operational usage logs, and historical maintenance events.</p>
+        </div>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="tabs-nav" id="eda-tabs">
+        <button class="tab-btn active" data-tab="tab-q1">Q1: Sensor Ranges</button>
+        <button class="tab-btn" data-tab="tab-q2">Q2: Pre-Service Trend</button>
+        <button class="tab-btn" data-tab="tab-q3">Q3: Alarm Taxonomies</button>
+        <button class="tab-btn" data-tab="tab-q4">Q4: The Load Paradox</button>
+        <button class="tab-btn" data-tab="tab-q5">Q5: Machine Type Burdens</button>
+        <button class="tab-btn" data-tab="tab-q6">Q6: Repeat Failures</button>
+      </div>
+
+      <!-- Tab Content Cards -->
+      <div class="tab-content active" id="tab-q1">
+        <div class="analytics-card-grid">
+          <div class="analytics-chart-container">
+            <img src="figures/01_sensor_distributions.png" alt="Sensor Distributions across Machine Types" class="responsive-chart-img" loading="lazy">
+          </div>
+          <div class="analytics-details">
+            <span class="tag-pill">Question 1 Finding</span>
+            <h3 class="card-headline">Which machines show abnormal sensor ranges?</h3>
+            <p class="card-body-text">
+              Statistical outlier analysis revealed that <strong>Hydraulic Presses</strong> operate in extreme mechanical and electrical envelopes compared to all other machine types.
+            </p>
+            <ul class="evidence-list">
+              <li><strong>MCH-004 (Hydraulic Press, 11y):</strong> Highest vibration peak in the entire plant at <span class="stat-highlight">17.20 mm/s</span> (nearly 4x threshold), with 21.1% of operating hours abnormal.</li>
+              <li><strong>MCH-021 (Hydraulic Press, 9y):</strong> Suffered the plant's worst thermal excursion, peaking at <span class="stat-highlight">95.96°C</span>, with 14.96 mm/s vibration.</li>
+              <li><strong>Current Anomaly:</strong> Hydraulic Presses draw ~12.3 A baseline current and spend 66–68% of time above normal electrical thresholds.</li>
+            </ul>
+            <div class="engineering-box">
+              <strong>Engineering Takeaway:</strong> Hydraulic Presses require acoustic emission monitoring and specialized pressure relief damping to prevent pump cavitation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-q2">
+        <div class="analytics-card-grid">
+          <div class="analytics-chart-container">
+            <img src="figures/02_sensor_degradation_before_maintenance.png" alt="Pre-Maintenance Sensor Trajectory" class="responsive-chart-img" loading="lazy">
+          </div>
+          <div class="analytics-details">
+            <span class="tag-pill">Question 2 Finding</span>
+            <h3 class="card-headline">How do sensor readings change before maintenance?</h3>
+            <p class="card-body-text">
+              Tracking sensor telemetry leading up to each of the 51 service events reveals a clear, multi-day degradation curve that provides an actionable early warning window.
+            </p>
+            <div class="timeline-metric-row">
+              <div class="metric-step">
+                <span class="step-label">Plant Baseline</span>
+                <span class="step-val">2.55 mm/s</span>
+                <span class="step-sub">58.2°C</span>
+              </div>
+              <div class="metric-arrow">&rarr;</div>
+              <div class="metric-step">
+                <span class="step-label">7 Days Prior</span>
+                <span class="step-val">2.79 mm/s</span>
+                <span class="step-sub">+9.5% climb</span>
+              </div>
+              <div class="metric-arrow">&rarr;</div>
+              <div class="metric-step">
+                <span class="step-label">24h–48h Prior</span>
+                <span class="step-val">2.84 mm/s</span>
+                <span class="step-sub">+11.4% climb</span>
+              </div>
+              <div class="metric-arrow">&rarr;</div>
+              <div class="metric-step highlight">
+                <span class="step-label">0–24h Prior</span>
+                <span class="step-val">2.85 mm/s</span>
+                <span class="step-sub">+11.8% Peak</span>
+              </div>
+            </div>
+            <div class="engineering-box">
+              <strong>Engineering Takeaway:</strong> Vibration climb begins 7 days in advance. Operations has a <strong>48-to-72 hour window</strong> to schedule planned interventions before catastrophic breakdown.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-q3">
+        <div class="analytics-card-grid">
+          <div class="analytics-chart-container">
+            <img src="figures/03_alarm_frequency_and_severity.png" alt="Alarm Frequency and Severity" class="responsive-chart-img" loading="lazy">
+          </div>
+          <div class="analytics-details">
+            <span class="tag-pill">Question 3 Finding</span>
+            <h3 class="card-headline">Which alarms occur most often?</h3>
+            <p class="card-body-text">
+              We cleansed 7 fragmented SCADA text variations into 3 canonical engineering fault types across 2,510 total alarms.
+            </p>
+            <div class="alarm-bar-stat">
+              <div class="alarm-header-info">
+                <span>1. High Temperature</span>
+                <strong>1,084 events (43.19%)</strong>
+              </div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill red" style="width: 43.2%;"></div></div>
+              <span class="severity-tag">514 Critical &bull; 570 Warning</span>
+            </div>
+
+            <div class="alarm-bar-stat">
+              <div class="alarm-header-info">
+                <span>2. High Vibration</span>
+                <strong>1,080 events (43.03%)</strong>
+              </div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill amber" style="width: 43.0%;"></div></div>
+              <span class="severity-tag">542 Critical &bull; 538 Warning</span>
+            </div>
+
+            <div class="alarm-bar-stat">
+              <div class="alarm-header-info">
+                <span>3. Current Spike</span>
+                <strong>346 events (13.78%)</strong>
+              </div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill blue" style="width: 13.8%;"></div></div>
+              <span class="severity-tag">180 Critical &bull; 166 Warning</span>
+            </div>
+            <div class="engineering-box">
+              <strong>Severity Impact:</strong> Critical alarms account for 49.24% of all incidents. Thermal issues represent the primary trigger for sudden emergency halts.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-q4">
+        <div class="analytics-card-grid">
+          <div class="analytics-chart-container">
+            <img src="figures/04_operating_load_vs_downtime.png" alt="Operating Load vs Downtime" class="responsive-chart-img" loading="lazy">
+          </div>
+          <div class="analytics-details">
+            <span class="tag-pill cyan">Question 4 Finding</span>
+            <h3 class="card-headline">Does operating load relate to downtime? (The Load Paradox)</h3>
+            <p class="card-body-text">
+              Plant managers often assume running equipment at high loads causes failures. Pearson correlation analysis firmly disproves this assumption:
+            </p>
+            <div class="stat-callout-card">
+              <span class="callout-val">r = -0.142</span>
+              <span class="callout-lbl">Zero Statistically Significant Correlation (p &gt; 0.05)</span>
+            </div>
+            <ul class="evidence-list">
+              <li><strong>Low Downtime Machines (&lt;3.1h):</strong> Average Load = <strong>65.03%</strong></li>
+              <li><strong>Medium Downtime Machines (8.7h):</strong> Average Load = <strong>65.02%</strong></li>
+              <li><strong>High Downtime Machines (&gt;15.1h):</strong> Average Load = <strong>65.03%</strong></li>
+            </ul>
+            <div class="engineering-box">
+              <strong>Engineering Takeaway:</strong> Operating load is uniform across all machines (~65%). Failures are driven by <strong>mechanical fatigue, bearing wear, and lack of lubrication</strong>—not daily machine throughput!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-q5">
+        <div class="analytics-card-grid">
+          <div class="analytics-chart-container">
+            <img src="figures/05_machine_type_service_comparison.png" alt="Machine Type Comparison" class="responsive-chart-img" loading="lazy">
+          </div>
+          <div class="analytics-details">
+            <span class="tag-pill">Question 5 Finding</span>
+            <h3 class="card-headline">Which machine types require more service?</h3>
+            <p class="card-body-text">
+              The maintenance burden is split between high-frequency service demand (CNC Lathes) and high-severity downtime duration (Hydraulic Presses):
+            </p>
+            <div class="type-burden-table">
+              <div class="type-row-item">
+                <span class="t-name">Hydraulic Press</span>
+                <span class="t-val red">11.89h downtime / mach</span>
+                <span class="t-alarms">171.7 alarms / mach</span>
+              </div>
+              <div class="type-row-item">
+                <span class="t-name">Compressor</span>
+                <span class="t-val amber">9.98h downtime / mach</span>
+                <span class="t-alarms">55.0 alarms / mach</span>
+              </div>
+              <div class="type-row-item">
+                <span class="t-name">Milling Machine</span>
+                <span class="t-val">8.46h downtime / mach</span>
+                <span class="t-alarms">59.0 alarms / mach</span>
+              </div>
+              <div class="type-row-item">
+                <span class="t-name">CNC Lathe</span>
+                <span class="t-val blue">2.00 services / mach (High Volume)</span>
+                <span class="t-alarms">39.3 alarms / mach</span>
+              </div>
+              <div class="type-row-item">
+                <span class="t-name">Conveyor</span>
+                <span class="t-val green">6.46h downtime / mach</span>
+                <span class="t-alarms">87.0 alarms / mach</span>
+              </div>
+            </div>
+            <div class="engineering-box">
+              <strong>Fleet Insight:</strong> Hydraulic Presses generate nearly 48% of all plant alarms (1,202) despite comprising only 23% of the fleet.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-q6">
+        <div class="analytics-card-grid">
+          <div class="analytics-chart-container">
+            <img src="figures/06_repeat_failure_patterns.png" alt="Repeat Failure Chronology" class="responsive-chart-img" loading="lazy">
+          </div>
+          <div class="analytics-details">
+            <span class="tag-pill red">Question 6 Finding</span>
+            <h3 class="card-headline">What patterns appear in repeated failures?</h3>
+            <p class="card-body-text">
+              Four chronic machines experienced 3 distinct service events in the 90-day assessment period:
+            </p>
+            <div class="chronic-machine-list">
+              <div class="chronic-card">
+                <div class="chronic-title">
+                  <strong>MCH-022 (CNC Lathe, Age 1y)</strong>
+                  <span class="badge-infant">Infant Mortality</span>
+                </div>
+                <p>12.54h downtime. Suffered Lube &rarr; Calibration &rarr; Calibration in 90 days. Caused by assembly misalignment and poor commissioning bedding.</p>
+              </div>
+
+              <div class="chronic-card">
+                <div class="chronic-title">
+                  <strong>MCH-016 (Conveyor, Age 9y)</strong>
+                  <span class="badge-cascading">Cascading Failure</span>
+                </div>
+                <p>13.82h downtime. Chronology: Lube (10.98h) &rarr; Motor repair (2.25h) &rarr; Bearing replacement (0.59h). Lubricant starvation directly caused motor overheating and bearing seizure.</p>
+              </div>
+
+              <div class="chronic-card">
+                <div class="chronic-title">
+                  <strong>MCH-005 (CNC Lathe, Age 5y)</strong>
+                  <span class="badge-drift">Alignment Drift</span>
+                </div>
+                <p>10.31h downtime. Interventions: Calibration &rarr; Lube &rarr; Inspection. Recurring alignment drift without replacing worn lead-screw bearings.</p>
+              </div>
+
+              <div class="chronic-card">
+                <div class="chronic-title">
+                  <strong>MCH-028 (CNC Lathe, Age 9y)</strong>
+                  <span class="badge-fatigue">Drivetrain Fatigue</span>
+                </div>
+                <p>12.62h downtime. Bearing replacement &rarr; Lube &rarr; Motor repair due to end-of-life drivetrain mechanical wear.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Predictive Modeling & Class Imbalance Section -->
+    <section class="section-container" id="ml-lab">
+      <div class="section-header">
+        <div>
+          <span class="section-badge">PREDICTIVE ANALYTICS &bull; SCIENTIFIC RIGOR</span>
+          <h2 class="section-title">Model Diagnostics & The Class Imbalance Reality</h2>
+          <p class="section-subtitle">Comparing chronological baseline vs Balanced Random Forest to estimate 7-day future maintenance needs.</p>
+        </div>
+      </div>
+
+      <div class="model-comparison-grid">
+        <div class="model-card">
+          <div class="model-card-header">
+            <h4>Stratified Baseline</h4>
+            <span class="model-badge">Baseline Model</span>
+          </div>
+          <div class="model-metrics">
+            <div class="m-metric"><span>Accuracy</span><strong>78.4%</strong></div>
+            <div class="m-metric"><span>Precision</span><strong>9.9%</strong></div>
+            <div class="m-metric"><span>Recall</span><strong>13.0%</strong></div>
+            <div class="m-metric"><span>F1-Score</span><strong>0.114</strong></div>
+            <div class="m-metric"><span>ROC-AUC</span><strong>0.501</strong></div>
+          </div>
+          <p class="model-desc">Randomized prior baseline reflecting raw class distribution.</p>
+        </div>
+
+        <div class="model-card active-model">
+          <div class="model-card-header">
+            <h4>Balanced Random Forest</h4>
+            <span class="model-badge active">Ensemble ML</span>
+          </div>
+          <div class="model-metrics">
+            <div class="m-metric"><span>Accuracy</span><strong>73.4%</strong></div>
+            <div class="m-metric"><span>Precision</span><strong class="stat-highlight">12.9%</strong></div>
+            <div class="m-metric"><span>Recall</span><strong class="stat-highlight">29.4%</strong></div>
+            <div class="m-metric"><span>F1-Score</span><strong class="stat-highlight">0.179</strong></div>
+            <div class="m-metric"><span>ROC-AUC</span><strong class="stat-highlight">0.524</strong></div>
+          </div>
+          <p class="model-desc">Trained chronologically on Jan–Feb (1,770 days) and evaluated out-of-time on March (930 days). Zero lookahead bias.</p>
+        </div>
+
+        <div class="model-card highlight-card">
+          <div class="model-card-header">
+            <h4>The "Accuracy Trap" Explained</h4>
+            <span class="model-badge warning">Assessment Rigor</span>
+          </div>
+          <p class="trap-explanation">
+            Overall accuracy appears high (73.4%), but <strong>90.1%</strong> of all days in the test set have no maintenance. A naive dummy model that always predicts zero achieves <strong>90.1% accuracy while catching zero failures (0% Recall)</strong>.
+          </p>
+          <div class="engineering-box">
+            <strong>Scientific Takeaway:</strong> With only 51 historical events across 90 days, machine learning lacks sufficient data for autonomous failure prediction. Operations must deploy our <strong>Rule-Based Maintenance Priority Score</strong> for guaranteed risk coverage.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Prioritization Matrix -->
+    <section class="section-container" id="action-plan">
+      <div class="section-header">
+        <div>
+          <span class="section-badge">STRATEGIC ROADMAP</span>
+          <h2 class="section-title">3-Tier Equipment Prioritization & Action Framework</h2>
+          <p class="section-subtitle">Targeted interventions to recover 120+ hours of lost production and deliver $180,000+ in annual operational savings.</p>
+        </div>
+      </div>
+
+      <div class="priority-tiers-grid">
+        <div class="tier-card tier-1">
+          <div class="tier-header">
+            <span class="tier-pill red">TIER 1 &bull; DAYS 1–7</span>
+            <h3>Immediate Critical Overhaul</h3>
+          </div>
+          <div class="tier-body">
+            <div class="action-item">
+              <strong>MCH-004 (Hydraulic Press):</strong>
+              <p>21.47h downtime, 457 alarms, 17.2 mm/s vibration. Immediate overhaul of high-pressure pumps, piston seals, and structural damping mounts.</p>
+            </div>
+            <div class="action-item">
+              <strong>MCH-014 (Compressor):</strong>
+              <p>19.15h downtime, thermal runaway to 85.6°C. Inspect intercooler core and replace high-pressure stage reed valves.</p>
+            </div>
+            <div class="action-item">
+              <strong>MCH-015 (CNC Lathe):</strong>
+              <p>16.69h downtime, 10.3 mm/s vibration. Conduct laser spindle dynamic balancing and bearing runout inspection.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tier-card tier-2">
+          <div class="tier-header">
+            <span class="tier-pill amber">TIER 2 &bull; DAYS 8–30</span>
+            <h3>Lubrication & Commissioning Quality Gates</h3>
+          </div>
+          <div class="tier-body">
+            <div class="action-item">
+              <strong>Conveyor Fleet Reliability (MCH-016 & MCH-025):</strong>
+              <p>Retrofit automated greasing systems to eliminate lubricant starvation and prevent cascading motor burnout.</p>
+            </div>
+            <div class="action-item">
+              <strong>Commissioning Warranty Gate (MCH-022, 1y old):</strong>
+              <p>Mandate a 100-hour vibration and torque verification audit for newly installed CNC lathes to eliminate infant mortality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tier-card tier-3">
+          <div class="tier-header">
+            <span class="tier-pill green">TIER 3 &bull; DAYS 31–90</span>
+            <h3>Telemetry Infrastructure & Expected ROI</h3>
+          </div>
+          <div class="tier-body">
+            <div class="action-item">
+              <strong>Automated SCADA Alarm Thresholds:</strong>
+              <p>Configure automated work orders at 4.40 mm/s vibration and 78.0°C temperature triggers.</p>
+            </div>
+            <div class="action-item">
+              <strong>Quantified Financial ROI:</strong>
+              <p>Eliminating recurring chronic failures recovers <strong>120+ hours of production downtime annually</strong>, saving MechaCare an estimated <strong>$180,000+ each year</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artifacts & Download Hub -->
+    <section class="section-container" id="downloads">
+      <div class="section-header">
+        <div>
+          <span class="section-badge">ASSESSMENT DELIVERABLES</span>
+          <h2 class="section-title">Submission Files & Artifact Hub</h2>
+          <p class="section-subtitle">Access all generated data files, executed notebooks, Excel workbooks, and presentation materials.</p>
+        </div>
+      </div>
+
+      <div class="downloads-grid">
+        <div class="download-card">
+          <div class="dl-icon green">CSV</div>
+          <div class="dl-info">
+            <h4>cleaned_machine_analysis.csv</h4>
+            <p>64,016 rows &bull; Deduplicated & Engineered Features</p>
+          </div>
+          <a href="../cleaned_machine_analysis.csv" class="dl-btn" download>Download</a>
+        </div>
+
+        <div class="download-card">
+          <div class="dl-icon blue">XLSX</div>
+          <div class="dl-info">
+            <h4>Machine_Maintenance_Analysis.xlsx</h4>
+            <p>Dynamic Formulas &bull; Executive Summary &bull; Pivot Tables</p>
+          </div>
+          <a href="../Machine_Maintenance_Analysis.xlsx" class="dl-btn" download>Download</a>
+        </div>
+
+        <div class="download-card">
+          <div class="dl-icon orange">IPYNB</div>
+          <div class="dl-info">
+            <h4>machine_maintenance_insight.ipynb</h4>
+            <p>Master Notebook &bull; 13 Fully Executed Cells &bull; Inline Visuals</p>
+          </div>
+          <a href="../machine_maintenance_insight.ipynb" class="dl-btn" download>Download</a>
+        </div>
+
+        <div class="download-card">
+          <div class="dl-icon purple">PPTX</div>
+          <div class="dl-info">
+            <h4>MechaCare_Presentation.pptx</h4>
+            <p>7 Professional Corporate Widescreen Slides</p>
+          </div>
+          <a href="../presentation/MechaCare_Machine_Maintenance_Presentation.pptx" class="dl-btn" download>Download</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Machine Diagnostics Modal -->
+  <dialog id="machine-modal" class="custom-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge" id="modal-type-badge">Hydraulic Press</span>
+          <h3 class="modal-title" id="modal-machine-id">MCH-004</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-kpi-row">
+          <div class="modal-kpi">
+            <span>Maintenance Priority</span>
+            <strong id="modal-priority" class="highlight-red">High</strong>
+          </div>
+          <div class="modal-kpi">
+            <span>Total Downtime</span>
+            <strong id="modal-downtime">21.47 hrs</strong>
+          </div>
+          <div class="modal-kpi">
+            <span>Peak Vibration</span>
+            <strong id="modal-vib">17.20 mm/s</strong>
+          </div>
+          <div class="modal-kpi">
+            <span>Max Temperature</span>
+            <strong id="modal-temp">89.08 °C</strong>
+          </div>
+          <div class="modal-kpi">
+            <span>Alarms Count</span>
+            <strong id="modal-alarms">457 events</strong>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>Historical Maintenance Actions (Q1 2026)</h4>
+          <div class="modal-services-list" id="modal-services">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h4>Engineering Recommendation</h4>
+          <p id="modal-recommendation" class="modal-rec-text">
+            Immediate pump overhaul and dynamic vibration dampening.
+          </p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 MechaCare Industrial Systems &bull; Data Science Sprint Skill-Based Assessment 2</p>
+      <p class="sub-footer">Prepared by Nitheen Sakthe P E &bull; Assessment Use Case 25</p>
+    </div>
+  </footer>
+
+  <!-- Load Fleet Data & Controller JS -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

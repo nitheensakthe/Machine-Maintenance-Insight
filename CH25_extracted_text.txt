@@ -1,0 +1,90 @@
+=== PAGE 1 ===
+U23AD491 - Data Science | DS Sprint - Skill Based Assessment 2
+
+
+=== PAGE 2 ===
+U23AD491 - Data Science | DS Sprint - Skill Based Assessment 2
+USE CASE 25 - MACHINE MAINTENANCE INSIGHT
+Understand Equipment. Detect Warning Patterns. Plan Maintenance.
+Organization MechaCare Industrial Systems
+Sector Industry
+Business Context
+MechaCare monitors industrial machines and wants to understand maintenance needs using sensor, usage, alarm and service 
+records.
+Business Question
+What operating patterns indicate machines that require maintenance attention?
+Dataset Description
+File Key Fields
+sensor.csv timestamp, machine, vibration, temperature, current
+machines.csv type, age, installation date
+usage.csv runtime, load, cycles
+alarms.csv alarm type, timestamp
+maintenance.csv service date, action, downtime
+Data Quality Conditions
+ Missing sensor intervals
+ Duplicate timestamps
+ Inconsistent alarm labels
+ Extreme sensor values
+ Incomplete maintenance history
+ROUND 1 - QUIZ | 20 MARKS
+ Answer objective questions from data analytics, data pre-processing, EDA, feature engineering, Microsoft Excel, NumPy, 
+Pandas, Matplotlib and Seaborn.
+Expected Evidence: Completed MCQ test and score sheet.
+ROUND 2 - EDA AND FEATURE ENGINEERING | 30 MARKS
+ Load and understand the datasets.
+ Check data types, missing values, duplicate records and unusual values.
+ Clean and combine the data at a suitable analysis level.
+ Perform descriptive analysis and create meaningful visualizations.
+ Study important relationships, patterns and trends.
+ Encode categorical variables where required.
+ Create meaningful new features.
+ Apply feature selection or dimensionality reduction when appropriate.
+Use-Case-Specific Analytical Questions
+ Which machines show abnormal sensor ranges?
+ How do readings change before maintenance?
+ Which alarms occur most often?
+ Does load relate to downtime?
+ Which machine types require more service?
+ What patterns appear in repeated failures?
+Expected Evidence: Cleaned dataset, EDA notebook, key visualizations, engineered features and selected features.
+
+=== PAGE 3 ===
+U23AD491 - Data Science | DS Sprint - Skill Based Assessment 2
+ROUND 3 - DATA ANALYSIS USING EXCEL | 30 MARKS
+ Import the cleaned data into Microsoft Excel.
+ Organize and format the data clearly.
+ Use suitable formulas and statistical functions.
+ Create charts that answer the business questions.
+ Prepare Pivot Tables and Pivot Charts.
+ Create one summary sheet containing the important results.
+Minimum Excel Analysis
+ Sensor distributions
+ Before-service trend
+ Alarm frequency
+ Load and downtime
+ Machine-type comparison
+ Repeat-failure patterns
+Expected Evidence: Well-organized Excel workbook with formulas, statistical analysis, charts, Pivot Tables, Pivot Charts and a 
+summary sheet.
+ROUND 4 - PITCHING BUSINESS INSIGHTS | 20 MARKS
+ Present the most important findings from the analysis.
+ Support each finding with evidence from the data.
+ Explain important patterns and their business meaning.
+ Identify the areas that need management attention.
+ Provide clear data-driven recommendations.
+ Deliver a short, well-structured business pitch.
+Pitch Focus
+Recommend maintenance priorities for machines showing persistent warning patterns or repeated downtime.
+Expected Evidence: Presentation slides, clear explanation of analysis results, business insights and recommendations.
+Final Deliverables
+ Cleaned and prepared dataset.
+ Python notebook containing EDA and feature engineering.
+ Excel workbook containing analysis and visualizations.
+ Short business-insight presentation.
+Marks Distribution
+Round Assessment Stage Marks
+1 Quiz 20
+2 EDA and Feature Engineering 30
+3 Data Analysis Using Excel 30
+4 Pitching Business Insights 20
+Total 100

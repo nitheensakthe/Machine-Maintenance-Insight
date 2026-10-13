@@ -1,0 +1,31 @@
+machine,type,age_years,installation_date
+MCH-001,CNC Lathe,13,2013-01-01
+MCH-002,CNC Lathe,3,2023-01-02
+MCH-003,CNC Lathe,5,2021-01-01
+MCH-004,Hydraulic Press,11,2015-01-02
+MCH-005,CNC Lathe,5,2021-01-01
+MCH-006,CNC Lathe,11,2015-01-02
+MCH-007,Milling Machine,10,2016-01-02
+MCH-008,Compressor,12,2014-01-01
+MCH-009,CNC Lathe,11,2015-01-02
+MCH-010,CNC Lathe,1,2025-01-01
+MCH-011,Compressor,1,2025-01-01
+MCH-012,Milling Machine,2,2024-01-02
+MCH-013,Hydraulic Press,14,2012-01-02
+MCH-014,Compressor,4,2022-01-01
+MCH-015,CNC Lathe,8,2018-01-01
+MCH-016,Conveyor,9,2017-01-01
+MCH-017,Conveyor,6,2020-01-02
+MCH-018,Compressor,2,2024-01-02
+MCH-019,Hydraulic Press,1,2025-01-01
+MCH-020,Hydraulic Press,14,2012-01-02
+MCH-021,Hydraulic Press,9,2017-01-01
+MCH-022,CNC Lathe,1,2025-01-01
+MCH-023,Compressor,5,2021-01-01
+MCH-024,Conveyor,10,2016-01-02
+MCH-025,Conveyor,9,2017-01-01
+MCH-026,Conveyor,12,2014-01-01
+MCH-027,Conveyor,8,2018-01-01
+MCH-028,CNC Lathe,9,2017-01-01
+MCH-029,Hydraulic Press,1,2025-01-01
+MCH-030,Hydraulic Press,6,2020-01-02
